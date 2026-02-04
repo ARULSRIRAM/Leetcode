@@ -1,18 +1,11 @@
 class Solution {
     public int singleNumber(int[] nums) {
-        int ans=0;
-        for(int i=0;i<32;i++){
-            int count=0;
-            for(int num:nums){
-                if(((num>>i)&1) == 1){
-                    count++;
-                }
-            }
-            if(count%3!=0){
-                ans|=(1<<i);
-            }
+        int one=0;
+        int two=0;
+        for(int i=0;i<nums.length;i++){
+            one=(nums[i]^one)&~two;
+            two=(nums[i]^two)&~one;
         }
-        return ans;
-
+        return one;
     }
 }
