@@ -20,12 +20,14 @@ class Solution {
             if(temp.val<x){
                 p1.next=new ListNode(temp.val);
                 p1=p1.next;
+                temp=temp.next;
             }
             else{
                 p2.next=new ListNode(temp.val);
                 p2=p2.next;
+                temp=temp.next;
             }
-            temp=temp.next;
+            
         }
         p1.next=dummy2.next;
         return dummy1.next;
