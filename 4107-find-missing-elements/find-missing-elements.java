@@ -2,12 +2,21 @@ class Solution {
     public List<Integer> findMissingElements(int[] nums) {
         
         List<Integer> ans=new ArrayList<>();
-        List<Integer> list2=Arrays.stream(nums).boxed().collect(Collectors.toList());
-        Arrays.sort(nums);
-        for(int i=nums[0];i<=nums[nums.length-1];i++){
-            if(!list2.contains(i)) ans.add(i);
+        int maxi=Integer.MIN_VALUE;
+        int mini=Integer.MAX_VALUE;
+        for(int i=0;i<nums.length;i++){
+            maxi=Math.max(maxi,nums[i]);
+            mini=Math.min(mini,nums[i]);
+        }
+        int size=maxi-mini+1;
+        int value=mini;
+        for(int i=0;i<size;i++){  
+            // arr[0]=add++;
+            ans.add(value++);
+        }
+        for(int num:nums){
+            if(ans.contains(num))ans.remove(Integer.valueOf(num));
         }
         return ans;
-
     }
 }
