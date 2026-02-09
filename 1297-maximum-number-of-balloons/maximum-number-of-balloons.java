@@ -11,12 +11,6 @@ class Solution {
         int  l=map.getOrDefault('l',0)/2;
         int  o=map.getOrDefault('o',0)/2;
         int  n=map.getOrDefault('n',0);
-        int mini=Integer.MAX_VALUE;
-        mini=Math.min(mini,b);
-        mini=Math.min(mini,a);
-        mini=Math.min(mini,l);
-        mini=Math.min(mini,o);
-        mini=Math.min(mini,n);
-        return mini;
+        return Math.min(Math.min(Math.min(b, a), Math.min(l, o)), n);
     }
 }
