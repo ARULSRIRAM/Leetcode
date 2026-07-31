@@ -15,17 +15,18 @@
  */
 class Solution {
     public TreeNode addOneRow(TreeNode root, int val, int depth) {
-        return addOneNewRow(root,val,depth,1);
-        
-    }
-    public TreeNode addOneNewRow(TreeNode root,int val,int depth,int currDepth){
         if(root == null)return null;
         if(depth==1){
             TreeNode nn=new TreeNode(val);
             nn.left=root;
             return nn;
         }
-        else if(currDepth == depth-1){
+        return addOneNewRow(root,val,depth,1);
+        
+    }
+    public TreeNode addOneNewRow(TreeNode root,int val,int depth,int currDepth){
+        if(root == null)return null;
+        if(currDepth == depth-1){
             TreeNode a=new TreeNode(val);
             TreeNode b=new TreeNode(val);
             a.left=root.left;
