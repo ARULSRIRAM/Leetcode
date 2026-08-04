@@ -10,7 +10,7 @@ class Solution {
         int total=prefix[n-1];
         for(int i=0;i<n;i++){
             int left=(i==0)?0:prefix[i-1];
-            int right=(i==n-1)?0:total - prefix[i];
+            int right=total - prefix[i];
             ans[i]=Math.abs(left-right);
         }
         return ans;
