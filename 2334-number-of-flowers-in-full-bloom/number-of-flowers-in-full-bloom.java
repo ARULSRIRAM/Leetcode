@@ -29,7 +29,7 @@ class Solution {
         for(int i=0;i<n;i++){
             int x=findFirstGreaterTarget(startTime,people[i]);
             int y=findFirstGreaterThanTarget(endTime,people[i]);
-            ans[i]=Math.abs(x-y);
+            ans[i]=x-y;
         }
         return ans;
     }
@@ -47,13 +47,13 @@ class Solution {
         }
         return ans;
     }
-     public static int findFirstGreaterThanTarget(int[] startTime,int val){
+     public static int findFirstGreaterThanTarget(int[] endTime,int val){
         int low=0;
-        int high=startTime.length-1;
-        int ans=startTime.length;
+        int high=endTime.length-1;
+        int ans=endTime.length;
         while(low<=high){
             int mid=low+(high-low)/2;
-            if(startTime[mid]>=val){
+            if(endTime[mid]>=val){
                 ans=mid;
                 high=mid-1;
             }
