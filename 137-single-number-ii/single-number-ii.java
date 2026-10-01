@@ -9,7 +9,7 @@ class Solution {
                 if((nums[j] & mask)!=0)one++;
                 // else zero++;
             }
-            if(one%3 !=0)ans=ans | (1<<i);
+            if(one%3 !=0)ans=ans | (mask);
         }
         return ans;
     }
