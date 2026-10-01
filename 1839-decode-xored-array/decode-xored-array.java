@@ -2,10 +2,9 @@ class Solution {
     public int[] decode(int[] encoded, int first) {
         int[] ans=new int[encoded.length+1];
         ans[0]=first;
-        for(int i=1;i<encoded.length;i++){
-            ans[i]=ans[i-1]^encoded[i-1];
+        for(int i=0;i<encoded.length;i++){
+            ans[i+1]=ans[i]^encoded[i];
         }
-        ans[ans.length-1]=encoded[encoded.length-1]^ans[ans.length-2];
         return ans;
     }
 }
